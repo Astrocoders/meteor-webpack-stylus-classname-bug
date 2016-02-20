@@ -1,5 +1,5 @@
 import { Component, PropTypes } from 'react';
-import style from 'TodoApp/client/css/TodoApp.import.css';
+import style from 'TodoApp/client/css/TodoApp.import.styl';
 
 const LoginButtons = BlazeToReact('loginButtons');
 

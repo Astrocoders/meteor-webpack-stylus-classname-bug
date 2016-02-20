@@ -1,6 +1,7 @@
 import { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import classNames from 'classnames';
 
 import style from './css/AdminApp.import.css';
 
@@ -11,7 +12,7 @@ export default class AdminApp extends Component {
 
   render() {
     return (
-      <div className={style.container}>
+      <div className={classNames(style.container)}>
         <Helmet
           title="Admin App"
           meta={[
@@ -19,7 +20,7 @@ export default class AdminApp extends Component {
           ]}
         />
         <Link to="/">Back</Link>
-        <h1>Admin</h1>
+        <h1>fuuu</h1>
         {this.props.children}
       </div>
     )

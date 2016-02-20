@@ -24,7 +24,10 @@ var plugins = [];
 
 if (process.env.NODE_ENV === 'production') {
   plugins.push(new ExtractTextPlugin('style.css', { allChunks: true }));
-  cssLoader = ExtractTextPlugin.extract('style', 'css?module&localIdentName=[hash:base64:5]');
+  cssLoader = ExtractTextPlugin.extract('style', [
+    'css?module&localIdentName=[hash:base64:5]',
+    'stylus',
+  ]);
 
   if (!Meteor.isCordova) {
     plugins.push(new webpack.optimize.CommonsChunkPlugin('common', 'common.web.js'));
@@ -40,6 +43,7 @@ module.exports = {
     loaders: [
       { test: /\.jsx?$/, loader: 'babel', query: babelSettings, exclude: /node_modules/ },
       { test: /\.css$/, loader: cssLoader },
+      { test: /\.styl$/, loader: cssLoader },
       { test: /\.(png|jpe?g)(\?.*)?$/, loader: 'url?limit=8182' },
       { test: /\.(svg|ttf|woff|eot)(\?.*)?$/, loader: 'file' }
     ]
